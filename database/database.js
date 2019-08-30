@@ -75,7 +75,7 @@ const products=db.define('products',{
 
 })
 
-const carts=('carts',{
+const carts=db.define('carts',{
     productname:{
         type:sequelize.STRING,
     },
