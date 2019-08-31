@@ -10,9 +10,6 @@ app.use(express.urlencoded(({ extended: true })))
 app.use('/user', userroute)
 app.use('/vendor',vendorroute)
 app.use('/admin',adminroute);
-app.get('/', function (req, res) {
-    res.send('hello');
-})
 
 app.listen(4000, () => {
     console.log("http://localhost:4000");
