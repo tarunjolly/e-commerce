@@ -40,4 +40,47 @@ route.post('/orderlist',(req,res)=>{
     })
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//homepage for the admin
+route.get('/',(req,res)=>{
+    res.render('adminhome')
+})
+
+//add a product page
+route.get('/productpage',(req,res)=>{
+    res.render('adminproductpage')
+})
+
+//updatestock page
+route.get('/updatestockpage',(req,res)=>{
+    res.render('adminstockpage')
+})
+
+//product details
+route.get('/productdetailspage',(req,res)=>{
+    res.render('adminproductdetails')
+})
+
+route.get('/orderspage',(req,res)=>{
+    res.render('adminorders')
+})
+
+route.get('/logout',(req,res)=>{
+    res.redirect('/')
+})
+
 module.exports=route
