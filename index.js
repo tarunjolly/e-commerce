@@ -3,18 +3,25 @@ const app = express();
 const { db, users, products, carts, orders, wishlist } = require('./database/database')
 const userroute = require('./routes/user');
 const vendorroute=require('./routes/vendor');
-const adminroute=require('./routes/admin');
 
 app.set('view engine','hbs');
 app.use(express.json())
 app.use(express.urlencoded(({ extended: true })))
 app.use(express.static('/public'))
 app.use('/',express.static(__dirname+'/public'))
+
+
+app.get('/',function(req,res){
+    res.send('hello');
+})
+
 app.use('/user', userroute);
 app.use('/vendor',vendorroute);
-app.use('/admin',adminroute);
 
 
+app.get('/logout',(req,res)=>{
+    res.redirect('/')
+})
 
 
 

@@ -136,4 +136,66 @@ route.get('/allorders',(req,res)=>{
         res.send(allproducts);
     })
 })
+
+
+
+//update the stock of a product
+route.post('/updatestock',(req,res)=>{
+    products.update({stock:req.body.stock},{where:{name:req.body.productname}}).then(()=>{
+        res.sendStatus(200);
+    })
+})
+
+//order list to the admin
+route.get('/orderlist',(req,res)=>{
+    orders.findAll().then((allorders)=>{
+        res.send(allorders);
+    })
+})
+
+//change the status of an order from pending to delivered or shipping
+route.post('/orderlist',(req,res)=>{
+    orders.update({status:req.body.status},{where:{productname:req.body.productname}}).then(()=>{
+        res.sendStatus(200);
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+//homepage for the vendor
+route.get('/',(req,res)=>{
+    res.render('vendorhome')
+})
+
+//add a product page
+route.get('/productpage',(req,res)=>{
+    res.render('vendorproductpage')
+})
+
+//updatestock page
+route.get('/updatestockpage',(req,res)=>{
+    res.render('vendorstockpage')
+})
+
+//product details
+route.get('/productdetailspage',(req,res)=>{
+    res.render('vendorproductdetails')
+})
+
+//get all orders
+route.get('/orderspage',(req,res)=>{
+    res.render('vendororders')
+})
+
+
+
 module.exports = route
