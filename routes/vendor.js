@@ -1,7 +1,20 @@
 const express = require('express');
 const route = express.Router();
 const { db, users, products, carts, orders, wishlist } = require('../database/database');
+const {passport}=require('./../passportsetup/setupmypassport');
 
+
+function checkLoggedIn(req, res, next) {
+    if (req.user) {
+        if(req.user.usertype=='vendor')
+        {
+        console.log(req.user);
+        console.log("req.user "+req.user.username)
+        return next()
+        }
+    }
+    res.redirect('/login')
+  }
 
 //add a product to database
 route.post('/addaproduct', (req, res) => {
@@ -172,27 +185,27 @@ route.post('/orderlist',(req,res)=>{
 
 
 //homepage for the vendor
-route.get('/',(req,res)=>{
+route.get('/',checkLoggedIn,(req,res)=>{
     res.render('vendorhome')
 })
 
 //add a product page
-route.get('/productpage',(req,res)=>{
+route.get('/productpage',checkLoggedIn,(req,res)=>{
     res.render('vendorproductpage')
 })
 
 //updatestock page
-route.get('/updatestockpage',(req,res)=>{
+route.get('/updatestockpage',checkLoggedIn,(req,res)=>{
     res.render('vendorstockpage')
 })
 
 //product details
-route.get('/productdetailspage',(req,res)=>{
+route.get('/productdetailspage',checkLoggedIn,(req,res)=>{
     res.render('vendorproductdetails')
 })
 
 //get all orders
-route.get('/orderspage',(req,res)=>{
+route.get('/orderspage',checkLoggedIn,(req,res)=>{
     res.render('vendororders')
 })
 

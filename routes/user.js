@@ -1,7 +1,19 @@
 const express = require('express');
 const route = express.Router();
 const { db, users, products, carts, orders, wishlist } = require('../database/database');
+const {passport}=require('./../passportsetup/setupmypassport');
 
+function checkLoggedIn(req, res, next) {
+    if (req.user) {
+        if(req.user.usertype=='user')
+        {
+        console.log(req.user);
+        console.log("req.user "+req.user.username)
+        return next()
+        }
+    }
+    res.redirect('/login')
+  }
 //get all products from database
 route.get('/getallproducts', (req, res) => {
     products.findAll().then(allproducts => {
@@ -115,5 +127,26 @@ route.get('/allorders',(req,res)=>{
     orders.findAll({where:{username:req.query.username}}).then(allproducts=>{
         res.send(allproducts);
     })
+})
+
+
+
+
+
+
+
+
+//homepage for the user
+route.get('/',checkLoggedIn,(req,res)=>{
+    res.render('userhome')
+})
+
+//cart page
+route.get('/cart',checkLoggedIn,(req,res)=>{
+    res.render('usercart');
+})
+
+route.get('/products',(req,res)=>{
+    res.render('userproduct')
 })
 module.exports = route

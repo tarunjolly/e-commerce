@@ -12,7 +12,7 @@ const users=db.define('users',{
         autoIncrement:true,
         primaryKey:true,
     },
-    name:{
+    username:{
         type:sequelize.STRING,
         allowNull:false,
     },
