@@ -2,6 +2,24 @@ const express = require('express');
 const route = express.Router();
 const { db, users, products, carts, orders, wishlist } = require('../database/database');
 const {passport}=require('./../passportsetup/setupmypassport');
+const multer=require('multer');
+const path=require('path');
+//public folder
+route.use(express.static('../public'));
+
+//set the storage engine
+const storage = multer.diskStorage({
+    destination: './public/uploads/',
+    filename: function(req, file, cb){
+      cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+  });
+
+var upload = multer({ storage: storage });
+
+
+
+
 
 
 function checkLoggedIn(req, res, next) {
@@ -16,8 +34,12 @@ function checkLoggedIn(req, res, next) {
     res.redirect('/login')
   }
 
+
+
 //add a product to database
-route.post('/addaproduct', (req, res) => {
+route.post('/addaproduct',upload.single("prod_image") ,(req, res) => {
+    console.log(req.file);
+    console.log(req.file.filename)
     products.create({
         id: req.body.id,
         name: req.body.name,
@@ -25,7 +47,7 @@ route.post('/addaproduct', (req, res) => {
         subtype: req.body.subtype,
         price: req.body.price,
         manufacturer: req.body.manufacturer,
-        image: req.body.image,
+        image: req.file.filename,
         stock: req.body.stock,
         vendor: req.body.vendor,
     }).then(allproducts=>{

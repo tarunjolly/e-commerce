@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="/vendor/addaproduct" method="post" enctype="multipart/form-data">
+  <input type="file" name="prod_image">
+  <br>
+  <input type="text" name="name" placeholder="productname"><br>
+  <input type="text" name="manufacturer" placeholder="manufacturer"><br>
+  <input type="text" name="price" placeholder="price"><br>
+  <input type="text" name="type" placeholder="type"><br>
+  <input type="text" name="subtype" placeholder="subtype"><br>
+  <input type="text" name="stock" placeholder="stock"><br> 
+  <input type="number" name="id" placeholder="id">
+  <button type="submit">add</button>
+</form>
 </body>
 </html>
