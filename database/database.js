@@ -70,6 +70,9 @@ const products=db.define('products',{
     },
     vendor:{
         type:sequelize.STRING,
+    },
+    description:{
+        type:sequelize.STRING,
     }
     
 

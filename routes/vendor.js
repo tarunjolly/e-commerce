@@ -6,7 +6,6 @@ const multer=require('multer');
 const path=require('path');
 //public folder
 route.use(express.static('../public'));
-
 //set the storage engine
 const storage = multer.diskStorage({
     destination: './public/uploads/',
@@ -49,7 +48,8 @@ route.post('/addaproduct',upload.single("prod_image") ,(req, res) => {
         manufacturer: req.body.manufacturer,
         image: req.file.filename,
         stock: req.body.stock,
-        vendor: req.body.vendor,
+        vendor: req.user.username,
+        description:req.body.description,
     }).then(allproducts=>{
         res.send(allproducts)
     })
@@ -87,8 +87,13 @@ route.post('/addtocart', (req, res) => {
 })
 
 //delete a product from cart
+// route.post('/delete', (req, res) => {
+//     carts.destroy({ where: { productname: req.body.productname } }).then(cart.findAll().then((allproducts) => { res.send(allproducts) }))
+// })
+
+//delete from vendor list
 route.post('/delete', (req, res) => {
-    carts.destroy({ where: { productname: req.body.productname } }).then(cart.findAll().then((allproducts) => { res.send(allproducts) }))
+    products.destroy({ where: { name: req.body.name } }).then(products.findAll().then((allproducts) => { res.send(allproducts) }))
 })
 
 //decrement the quantity of a product from cart
@@ -178,6 +183,13 @@ route.get('/allorders',(req,res)=>{
 route.post('/updatestock',(req,res)=>{
     products.update({stock:req.body.stock},{where:{name:req.body.productname}}).then(()=>{
         res.sendStatus(200);
+    })
+})
+
+//update the cost and description
+route.post('/updatecostanddescription',(req,res)=>{
+    products.findOne({where:{name:req.body.name}}).then((products)=>{
+        res.send(products);
     })
 })
 
