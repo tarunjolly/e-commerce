@@ -177,12 +177,21 @@ route.get('/allorders',(req,res)=>{
     })
 })
 
-
+//get the quantity of a product
+route.post('/stockstatus',(req,res)=>{
+    console.log(req.body.name)
+   const product_name =req.body.name
+   products.findOne({where:{name :product_name}}).then((data)=>{
+       console.log(data.dataValues)
+       res.json(data.dataValues)
+   })
+    // res.send("hello")
+})
 
 //update the stock of a product
 route.post('/updatestock',(req,res)=>{
-    products.update({stock:req.body.stock},{where:{name:req.body.productname}}).then(()=>{
-        res.sendStatus(200);
+    products.update({stock:req.body.stock,price:req.body.price,description:req.body.description},{where:{name:req.body.productname}}).then(()=>{
+        res.send('done')
     })
 })
 
