@@ -17,11 +17,7 @@ $(function(){
           var cost=$(`<td>${data[i].price}</td>`)
           var quantity=$(`<td>${data[i].stock}</td>`)
 
-        //   var edit=$(`<button>edit</button>`).click(function(e){
-        //      console.log(e.target.parentElement.children[0].innerText)
-        //       var edited=e.target.parentElement.children[0].innerText;
-        //       editing(edited)
-        //   })
+        
 
           var del=$('<button>delete</button>').click(function(e){
             var edited=e.target.parentElement.children[0].innerText;
@@ -37,18 +33,3 @@ $(function(){
       }
   }
 
-
-//   function editing(data)
-//   {
-        
-       
-//         $.post('/vendor/updatecostanddescription',{name:data},dat=>{
-//            console.log(dat.price)
-//             console.log(dat.description)
-//            $('#ed').val(dat.price)
-//             $('#te').append(dat.description)
-
-//         })
-
-
-//   }
