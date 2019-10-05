@@ -26,6 +26,7 @@ function printingdetails(data){
     }
     $(sel).attr('id','sel');
     sel.change(()=>{
+        console.log('njfsdkjfdsdkj')
         var selected_option =$( "#sel option:selected" ).text();
         console.log(selected_option)
         $.post('/vendor/stockstatus',{name:selected_option},function(data){
@@ -38,4 +39,10 @@ function printingdetails(data){
     products.append(sel);
 }
 
+
+function printstock(data)
+{
+    num=$('#num');
+    num.val(data.stock);
+}
 
