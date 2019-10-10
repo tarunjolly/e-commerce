@@ -14,7 +14,9 @@ function checkLoggedIn(req, res, next) {
     }
     res.redirect('/login')
   }
-//get all products from database
+route.use(express.static('/public'))
+
+  //get all products from database
 route.get('/getallproducts', (req, res) => {
     products.findAll().then(allproducts => {
         res.send(allproducts)
