@@ -25,8 +25,8 @@ passport.use(
 passport.use(
     new Facebookstrategy(
       {
-        clientID: '',
-        clientSecret: '',
+        clientID: 'facebookclientid',
+        clientSecret: 'facebookclientsecret',
         callbackURL: 'http://localhost:4000/login/fb/callback',
       },
       (accessToken, refreshToken, profile, done) => {
@@ -50,8 +50,8 @@ passport.use(
   passport.use(
     new googlestrategy(
       {
-        clientID: '',
-        clientSecret: '',
+        clientID: 'googleclientid',
+        clientSecret: 'googleclientsecret',
         callbackURL: 'http://localhost:4000/login/google/callback',
       },
       (accessToken, refreshToken, profile, done) => {

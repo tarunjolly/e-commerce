@@ -1,13 +1,22 @@
 {
-  "name": "e-commerce",
+  "name": "ecommerce-proj",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thatambivertguy/ecommerce.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatambivertguy/ecommerce/issues"
+  },
+  "homepage": "https://github.com/thatambivertguy/ecommerce#readme",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -17,17 +26,8 @@
     "passport-facebook": "^3.0.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.19.3",
+    "sequelize": "^5.19.2",
     "session": "^0.1.0",
     "sqlite3": "^4.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thatambivertguy/e-commerce.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thatambivertguy/e-commerce/issues"
-  },
-  "homepage": "https://github.com/thatambivertguy/e-commerce#readme",
-  "description": ""
+  }
 }
