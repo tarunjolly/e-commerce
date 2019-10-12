@@ -2,7 +2,8 @@ const express = require('express');
 const route = express.Router();
 const { db, users, products, carts, orders, wishlist } = require('../database/database');
 const {passport}=require('./../passportsetup/setupmypassport');
-
+const sequelize=require('sequelize');
+const op=sequelize.Op;
 function checkLoggedIn(req, res, next) {
     if (req.user) {
         // if(req.user.usertype=='user')
@@ -131,7 +132,12 @@ route.get('/allorders',(req,res)=>{
     })
 })
 
-
+route.post('/search',(req,res)=>{
+    products.findAll({where:{name:{[op.like]:'%'+req.body.term+'%'}}})
+    .then(data=>{
+        res.send(data);
+    })
+})
 
 
 

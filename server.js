@@ -118,7 +118,7 @@ app.get('/signup',(req,res)=>{
 
 app.get('/logout',(req,res)=>{
     req.logout();
-    res.redirect('/')
+    res.redirect('/user/')
 })
 
 

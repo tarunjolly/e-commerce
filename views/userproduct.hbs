@@ -17,8 +17,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/user/product.css">
 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/user/product.css">
+    <script src="/user/product.js"></script>
 
 </head>
 
@@ -91,8 +95,9 @@
         <div class="row">
             <div class="col-3" id="myfilter">
                 <div style="margin:10px;width:100%;color:white;">
-                    <input type="text" id="searchinput" placeholder="search">
-                    <button class="button bg-light" id="search">search</button>
+                    
+                    <input type="search" name="term" id="searchinput" placeholder="search">
+                    <button class="button bg-light" id="searchbtn">search</button>
                 </div>
                 <div class="category">
                     <div style=";padding:0 10px; background-color:black; width:100%; color:white;border-radius:5px">
@@ -147,78 +152,8 @@
             </div>
 
             <div class="col-9" id="myproducts">
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
 
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish</button></p>
-                </div>
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
 
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish</button></p>
-                </div>
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
-
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish</button></p>
-                </div>
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
-
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish</button></p>
-                </div>
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
-
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish</button></p>
-                </div>
-                <div class="card">
-                    <img src="/uploads/prod_image-1568037155582.png" alt="Denim Jeans" height="170px"
-                        style="width:100%">
-
-                    <h1>tailored jeans</h1>
-                    <p class="price">19.99</p>
-                    <p>
-                        description
-                    </p>
-                    <p><button id="cart">add to cart</button>
-                        <button id="wish">wish list</button></p>
-                </div>
             </div>
 
         </div>
