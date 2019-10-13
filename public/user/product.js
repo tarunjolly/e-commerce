@@ -47,40 +47,39 @@ function printingproducts(data){
         dffdsf=$(`<p id="unique"style='display:none'>${data[i].id}</p>`)
         df=$(`<p id="vendor" style='display:none'>${data[i].vendor}</p>`)
         imgs=$(`<p id="image-add" style='display:none'>${data[i].image}</p>`)
-          addtocart= $(`<button id="addtocart">add to cart</button>`);
-            wishlist= $(`<button id="wish">wish list</button>`);
+          addtocart= $(`<button class="addtocart">add to cart</button>`);
+            wishlist= $(`<button class="wish">wish list</button>`);
         para=$(`<p></p>`);
-        $('#addtocart').unbind('click').bind('click', function (e) {
-            console.log("dfds")
-            var targetdiv=($(this).parent().parent())[0]
-            var productname =targetdiv.innerText.split("\n")[0]
-            var price=targetdiv.innerText.split("\n")[2]
-            var productid=$('#unique').html()
-            var vendor=$('#vendor').html()
-            var imageat=$('#image-add').html()
-            $.post('/user/addtocart',{productname,productid,price,vendor,imageat},(data)=>{
-                console.log(data)
-                alert("PRODUCT ADDED TO CART")
-            })
-    });
-    $('#wish').unbind('click').bind('click', function (e) {
-        console.log('working')
+        para.append(addtocart,wishlist);
+        carddiv.append(image,names,price,description,para,dffdsf,df,imgs);
+        mydiv.append(carddiv);
+    }
+    $('.addtocart').unbind('click').bind('click', function (e) {
+        console.log("dfds")
         var targetdiv=($(this).parent().parent())[0]
         var productname =targetdiv.innerText.split("\n")[0]
         var price=targetdiv.innerText.split("\n")[2]
         var productid=$('#unique').html()
         var vendor=$('#vendor').html()
         var imageat=$('#image-add').html()
-        $.post('/user/addtowishlist',{productname,productid,price,vendor,imageat},(data)=>{
+        $.post('/user/addtocart',{productname,productid,price,vendor,imageat},(data)=>{
             console.log(data)
-            alert("PRODUCT ADDED TO WISHLIST")
+            alert("PRODUCT ADDED TO CART")
         })
 });
-
-        para.append(addtocart,wishlist);
-        carddiv.append(image,names,price,description,para,dffdsf,df,imgs);
-        mydiv.append(carddiv);
-    }
+$('.wish').unbind('click').bind('click', function (e) {
+    console.log('working')
+    var targetdiv=($(this).parent().parent())[0]
+    var productname =targetdiv.innerText.split("\n")[0]
+    var price=targetdiv.innerText.split("\n")[2]
+    var productid=$('#unique').html()
+    var vendor=$('#vendor').html()
+    var imageat=$('#image-add').html()
+    $.post('/user/addtowishlist',{productname,productid,price,vendor,imageat},(data)=>{
+        console.log(data)
+        alert("PRODUCT ADDED TO WISHLIST")
+    })
+});
 }
 
 
