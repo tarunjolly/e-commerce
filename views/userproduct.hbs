@@ -106,12 +106,12 @@
                     <div style="padding:0 20px;background-color:lightgrey;width:100%;border-radius:5px">
                         <ul>
                             <li style="list-style:none ">
-                                <input type="radio" name="type">
-                                <label>Men</label>
+                                <input type="radio" name="type" class="filter" id="cat-1" value="Men">
+                                <label for="cat-1">Men</label>
                             </li>
                             <li style="list-style:none">
-                                <input type="radio" name="type">
-                                <label>Women</label>
+                                <input type="radio" name="type" class="filter" id="cat-2" value="Women">
+                                <label for="cat-2">Women</label>
                             </li>
                         </ul>
 
@@ -124,12 +124,12 @@
                     <div style="padding:0 20px;background-color:lightgrey;width:100%;border-radius:5px">
                         <ul>
                             <li style="list-style:none">
-                                <input type="radio" name="sub-type">
-                                <label>Top</label>
+                                <input type="radio" name="sub-type" class="filter" id="sub-1" value="Top">
+                                <label for="sub-1">Top</label>
                             </li>
                             <li style="list-style:none">
-                                <input type="radio" name="sub-type">
-                                <label>Bottom</label>
+                                <input type="radio" name="sub-type" class="filter" id="sub-2" value="Bottom">
+                                <label for="sub-2">Bottom</label>
                             </li>
                         </ul>
 
@@ -148,7 +148,8 @@
 
                     </div>
                 </div>
-                <button>Reset</button>
+                <button id="apply" class="btn">Apply</button>
+                <button id="reset" class="btn">Reset</button>
             </div>
 
             <div class="col-9" id="myproducts">

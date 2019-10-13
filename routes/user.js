@@ -37,10 +37,11 @@ route.post('/addtocart', (req, res) => {
     carts.create({
         productname:req.body.productname,
         productid:req.body.productid,
-        username:req.body.username,
+        username:req.user.username,
         price:req.body.price,
-        quantity:req.body.quantity,
+        quantity:1,
         vendor:req.body.vendor,
+        image:req.body.imageat,
     }).then(allproducts=>{
         res.send(allproducts);
     })
@@ -88,9 +89,10 @@ route.post('/addtowishlist', (req, res) => {
         productid: req.body.productid,
         productname: req.body.productname,
         price: req.body.price,
-        quantity: req.body.quantity,
-        username: req.body.username,
+        quantity: 1,
+        username: req.user.username,
         vendor: req.body.vendor,
+        image:req.body.imageat,
     }).then((allproducts)=>{
         res.send(allproducts);
     })
@@ -139,8 +141,56 @@ route.post('/search',(req,res)=>{
     })
 })
 
+//get filtered product
+route.post('/filterprod',(req,res)=>{
+ if(req.body.type && req.body.subtype &&req.body.price){
+    var condition={where:{
+     type:req.body.type,
+     subtype:req.body.subtype,
+     price:{[op.gt]: req.body.price}
+
+  }    
+}}
+else if(req.body.type && req.body.subtype){
+    var condition={where:{
+     type:req.body.type,
+     subtype:req.body.subtype,
+     }    
+}}
+else if(req.body.subtype &&req.body.price){
+    var condition={where:{
+     subtype:req.body.subtype,
+     price:{[op.gt]: req.body.price}
+
+  }    
+}}
+else if(req.body.type&&req.body.price){
+    var condition={where:{
+     type:req.body.type,
+    price:{[op.gt]: req.body.price}
+
+  }    
+}}
+else if( req.body.subtype){
+    var condition={where:{
+     subtype:req.body.subtype,}    
+}}
+else if(req.body.type){
+    var condition={where:{
+     type:req.body.type}    
+}}
+else if(req.body.price){
+    var condition={where:{
+  price:{[op.gt]: req.body.price}}    
+}}
 
 
+
+products.findAll(condition).then(data=>{
+        console.log(data)
+        res.send(data)})
+
+})
 
 
 
