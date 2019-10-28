@@ -234,6 +234,14 @@ products.findAll(condition).then(data=>{
 })
 
 
+
+
+//single product view
+route.get('/singleproduct',(req,res)=>{
+    res.render('singleproduct')
+})
+
+
 //order page for user
 route.get('/orders',checkLoggedIn,(req,res)=>{res.render('userorder')})
 //homepage for the user
