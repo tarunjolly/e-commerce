@@ -1,14 +1,18 @@
 
 $(function () {
 
-    $('#searchbtn').click(function () {
+        $('#searchbtn').click(function () {
 
         searchinput = $('#searchinput');
         term = searchinput.val();
-
+        // $.get( "test.cgi", { name: "John", time: "2pm" } )
+        // .done(function( data ) {
+        //   alert( "Data Loaded: " + data );
+        // });
         $.post('/user/search', { term: term }, (data) => {
             printingproducts(data);
         })
+        
     })
 
     $.get('/user/getallproducts', (data) => {

@@ -173,7 +173,7 @@ route.post('/placeorder',(req,res)=>{
 })
 //get all the order placed by a user
 route.get('/allorders',(req,res)=>{
-    orders.findAll({where:{username:req.query.username}}).then(allproducts=>{
+    orders.findAll({where:{username:req.user.username}}).then(allproducts=>{
         res.send(allproducts);
     })
 })
