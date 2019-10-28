@@ -19,7 +19,7 @@ $(function(){
 
         
 
-          var del=$('<button>delete</button>').click(function(e){
+          var del=$('<button  type="button" class="btn btn-danger">delete</button>').click(function(e){
             var edited=e.target.parentElement.children[0].innerText;
               $.post('/vendor/delete',{name:edited},(data)=>{
                 

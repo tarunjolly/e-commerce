@@ -173,7 +173,7 @@ route.post('/placeorder',(req,res)=>{
 })
 //get all the order placed by a user
 route.get('/allorders',(req,res)=>{
-    orders.findAll({where:{username:req.user.username}}).then(allproducts=>{
+    orders.findAll({where:{vendor:req.user.username}}).then(allproducts=>{
         res.send(allproducts);
     })
 })
@@ -209,6 +209,12 @@ route.get('/orderlist',(req,res)=>{
         res.send(allorders);
     })
 })
+// delete an order
+route.post('/deleteorder',(req,res)=>{
+    orders.destroy({ where: { id: req.body.id } }).then(res.sendStatus(200))
+})
+
+
 
 //change the status of an order from pending to delivered or shipping
 route.post('/orderlist',(req,res)=>{
