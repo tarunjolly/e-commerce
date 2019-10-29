@@ -114,6 +114,13 @@ route.post('/deletefromwishlist', (req, res) => {
      wishlist.destroy({ where: { productid: req.body.id,username:req.user.username } }).then(wishlist.findAll().then((allproducts) => { res.send(allproducts) }))
  })
 
+//order to cancel
+route.post('/orderupdate',(req,res)=>{
+    orders.update({status:'Cancelled'},{where:{id:req.body.id}}).then(()=>{
+        res.sendStatus(200);
+    })
+})
+
 //wishlist to addtocart
 route.post('/wishtocart',(req,res)=>{
     wishlist.findOne({ where: { productid:req.body.id,username:req.user.username } }).then((item)=>{
