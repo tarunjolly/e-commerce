@@ -11,7 +11,7 @@ $(function(){
     var maindiv=$('#table');  
     for(let i=0;i<data.length;i++)
       {   var serial=$(`<th scope="row">${i+1}</th>`)
-          var orderid=$(`<th scope="row">${data[i].id}</th>`)
+          var orderid=$(`<td>${data[i].id}</td>`)
           var rowdiv=$(`<tr></tr>`)
           var productname=$(`<td>${data[i].productname}</td>`)
           var quantity=$(`<td>${data[i].quantity}</td>`)
