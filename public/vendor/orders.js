@@ -19,19 +19,26 @@ $(function(){
           var quantity=$(`<td>${data[i].status}</td>`)
           var orderid=$(`<td>${data[i].id}</td>`)
         
-
+          var delivered=$('<td><button  type="button" class="btn btn-success">Delivered</button></td>').click(function(e){
+            var edited=e.target.parentElement.parentElement.children[1].innerText;
+            // console.log(edited)
+              $.post('/vendor/orderlist',{id:edited},(data)=>{
+                
+              window.location.reload("http://localhost:4000/vendor/orderspage");
+              })
+          })
         
 
-          var del=$('<td><button  type="button" class="btn btn-danger">delete</button></td>').click(function(e){
+          var del=$('<td><button  type="button" class="btn btn-danger">Delete</button></td>').click(function(e){
             var edited=e.target.parentElement.parentElement.children[1].innerText;
-            console.log(edited)
+            // console.log(edited)
               $.post('/vendor/deleteorder',{id:edited},(data)=>{
                 
               window.location.reload("http://localhost:4000/vendor/orderspage");
               })
           })
 
-          rowdiv.append(count,orderid,productname,category,subcategory,cost,quantity,del);
+          rowdiv.append(count,orderid,productname,category,subcategory,cost,quantity,delivered,del);
           maindiv.append(rowdiv);
       }
   }

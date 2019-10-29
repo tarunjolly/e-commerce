@@ -218,7 +218,7 @@ route.post('/deleteorder',(req,res)=>{
 
 //change the status of an order from pending to delivered or shipping
 route.post('/orderlist',(req,res)=>{
-    orders.update({status:req.body.status},{where:{productname:req.body.productname}}).then(()=>{
+    orders.update({status:'Delivered'},{where:{id:req.body.id}}).then(()=>{
         res.sendStatus(200);
     })
 })
