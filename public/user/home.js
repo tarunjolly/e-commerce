@@ -1,6 +1,6 @@
 $(function(){
 
-    $('#home').click(function(e){
+    $('.home').click(function(e){
         //console.log($(this).parent()[0].childNodes[1].childNodes[0].nodeValue);
        // console.log($(this).parent());
         var theid=$(this).parent()[0].childNodes[1].childNodes[0].nodeValue;
