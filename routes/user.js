@@ -251,7 +251,7 @@ products.findAll(condition).then(data=>{
 route.get('/singleproduct',(req,res)=>{
     //var idd=req.query.id;
     //console.log(idd);
-    console.log(req.body.id);
+    console.log("oh yeah" +req.query.id);
     //const idd=req.body.id;
     products.findOne({where:{id:req.query.id}}).then(pro=>{
         console.log(pro)
