@@ -1,7 +1,6 @@
 {
   "name": "ecommerce-proj",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/thatambivertguy/ecommerce.git"
+    "url": ""
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thatambivertguy/ecommerce/issues"
+    
   },
-  "homepage": "https://github.com/thatambivertguy/ecommerce#readme",
+  "homepage": "",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.16.2",
@@ -29,5 +28,6 @@
     "sequelize": "^5.19.2",
     "session": "^0.1.0",
     "sqlite3": "^4.1.0"
-  }
+  },
+  "description": ""
 }
